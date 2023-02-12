@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-3">
+          <div class="card bg-dark bg-gradient text-white">
+            <div class="card-body text-center">
+              <h1>TO DO List</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 offset-2 mt-3" id="ToDoContainer">
+          <div class="d-flex flex-row">
+            <input
+              type="text"
+              class="form-control"
+              id="text-value"
+              placeholder="add some info here..."
+            />
+            <button class="btn btn-outline-primary mx-2" id="add-btn">
+              Add
+            </button>
+          </div>
+        </div>
+        <div class="col-md-8 offset-2 mt-3" id="emptyCard">
+          <div class="card mb-3"">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card-body">
+                <h1 class="card-text text-center">Nothing here.......</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/app.js"></script>
+  </body>
+</html>

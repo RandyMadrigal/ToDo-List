@@ -1,0 +1,17 @@
+
+
+.container{
+    margin-top: 50px;
+}
+
+.center-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.invisible{
+    display: none;
+
+}
