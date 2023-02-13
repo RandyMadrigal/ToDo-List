@@ -1,7 +1,7 @@
 const addBtn = document.getElementById("add-btn")
 const info = document.getElementById("text-value")
 const NotData = document.getElementById("emptyCard")
-const Div = document.getElementById("ToDoContainer")
+const Div = document.getElementById("ToDo-list")
 const ToDo = []
 
 const addInfo = () => {
@@ -25,21 +25,17 @@ const addInfo = () => {
     list.text,
     list.Fecha)
 
-    ToDoLength();
-
-
+  ToDoLength();
 }
 
 const AddToDoActivity = (id,text,Fecha) =>{
 
   let DivToDo = document.createElement("div")
-  DivToDo.classList.add("col-md-8", "offset-2", "mt-3")
-  DivToDo.setAttribute("id","ToDo-list");
 
     DivToDo.innerHTML = `
     <div class="card mb-2 mt-2"">
           <div class="row">
-            <div class="col-md-8 col-sm-6">
+            <div class="col-md-10 col-sm-6">
               <div class="card-body">
                 <p class="card-text">
                   ${text}
@@ -50,38 +46,38 @@ const AddToDoActivity = (id,text,Fecha) =>{
                 </p>
               </div>
             </div>
-            <div class="col-md-4 col-sm-6 center-item">
+            <div class="col-md-2 col-sm-6 center-item">
               <div class="d-flex flex-row justify-content-evenly">
-                <button class="btn btn-danger mx-2">Delete</button>
-    <!-- <button class="btn btn-success">Edit</button>  --> 
+                <button class="btn btn-danger mx-2" id="${id}">Delete</button>
               </div>
             </div>
           </div>
         </div>
     `
-  Div.insertAdjacentElement("afterend", DivToDo)
+  Div.append(DivToDo)
+ 
+  const deletebtn = document.getElementById(`${id}`)
 
-  DivToDo.addEventListener("click",deleteHandler.bind(null,id))
-    
+  deletebtn.addEventListener("click",deleteHandler.bind(null,id));
+ 
   console.log(ToDo)
 }
 
 const deleteHandler = (id) => {
 
   let deleteItem = 0;
+  console.log(id)
   
   for (const item of ToDo) {
     if(item.id === id){
-      console.log(item.id)
       break;
     }
     deleteItem++;
   }
  
   ToDo.splice(deleteItem,1)
-  let DivToDo = document.getElementById("ToDo-list")
-  DivToDo.children[deleteItem].remove()
-  alert(deleteItem);
+  Div.children[deleteItem].remove()
+  ToDoLength();
 
 }
 
@@ -99,7 +95,6 @@ const ToDoLength = () => {
     NotData.classList.toggle("invisible")
   }
 }
-
 
 addBtn.addEventListener("click", () => {
   
